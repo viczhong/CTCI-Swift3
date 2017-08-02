@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<playground version='6.0' target-platform='ios' executeOnSourceChanges='false'>
+    <pages>
+        <page name='2.1 Remove Dups'/>
+        <page name='2.2 Return Kth to Last'/>
+        <page name='2.3 Delete Middle Node'/>
+        <page name='2.4 Partition'/>
+        <page name='2.5 Sum Lists'/>
+        <page name='2.6 Palindrome'/>
+        <page name='2.7 Intersection'/>
+        <page name='2.8 Loop Detection'/>
+    </pages>
+</playground>
