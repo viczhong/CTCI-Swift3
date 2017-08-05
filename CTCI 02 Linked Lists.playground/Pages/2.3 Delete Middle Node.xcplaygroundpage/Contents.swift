@@ -9,7 +9,21 @@ import Foundation
 //Result: nothing is returned, but the new linked list looks like a -> b -> d -> e -> f
 
 extension LinkedList {
-    func deleteMiddle() {
+    func deleteMiddleWithRunners() {
+        var currentNode = head
+        var previousNode = currentNode
+        var fastNode = head
+        
+        while currentNode.next != nil && fastNode.next?.next != nil {
+            previousNode = currentNode
+            currentNode = currentNode.next!
+            fastNode = (fastNode.next?.next!)!
+        }
+        
+        previousNode.next = currentNode.next
+    }
+    
+    func deleteMiddleWithoutRunners() {
         var currentNode = head
         var counter = 1
         
@@ -33,20 +47,16 @@ extension LinkedList {
 }
 
 let list = LinkedList<Int>()
-list.append(element: 1)
-list.append(element: 2)
-list.append(element: 3)
-list.append(element: 4)
-list.append(element: 5)
+
+for x in 1...7 {
+    list.append(element: x)
+}
 
 list.printAllKeys()
-list.deleteMiddle()
+
+for _ in 0...5 {
+list.deleteMiddleWithRunners()
 list.printAllKeys()
-list.deleteMiddle()
-list.printAllKeys()
-list.deleteMiddle()
-list.printAllKeys()
-list.deleteMiddle()
-list.printAllKeys()
+}
 
 //: [Next](@next)

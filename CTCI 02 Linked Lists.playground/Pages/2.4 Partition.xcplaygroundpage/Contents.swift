@@ -8,5 +8,15 @@ import Foundation
 //Input: 3 -> 5 -> 8 -> 5 -> 10 -> 2 -> 1 [partition = 5]
 //Output: 3 -> 1 -> 2 -> 10 -> 5 -> 5 -> 8
 
+extension LinkedList {
+
+    func partition(_ num: Int) {
+        print("The example is still confusing as heck. What.")
+    }
+
+}
+
+
+
 
 //: [Next](@next)

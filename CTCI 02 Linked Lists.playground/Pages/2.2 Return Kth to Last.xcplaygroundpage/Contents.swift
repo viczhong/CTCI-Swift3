@@ -31,11 +31,9 @@ extension LinkedList {
 }
 
 let list = LinkedList<Int>()
-list.append(element: 1)
-list.append(element: 2)
-list.append(element: 3)
-list.append(element: 4)
-list.append(element: 5)
+for x in 1...5 {
+    list.append(element: x)
+}
 
 list.kthToLast(5)
 list.kthToLast(0)
