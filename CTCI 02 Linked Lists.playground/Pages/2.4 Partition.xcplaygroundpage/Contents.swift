@@ -8,15 +8,50 @@ import Foundation
 //Input: 3 -> 5 -> 8 -> 5 -> 10 -> 2 -> 1 [partition = 5]
 //Output: 3 -> 1 -> 2 -> 10 -> 5 -> 5 -> 8
 
-extension LinkedList {
-
-    func partition(_ num: Int) {
-        print("The example is still confusing as heck. What.")
+extension LinkedList where T: Comparable {
+    func partition(_ num: T) {
+        var currentNode = head
+        var previousNode = currentNode
+        var partition = currentNode
+        
+        if currentNode.next != nil {
+            currentNode = currentNode.next!
+            
+            
+            while currentNode.next != nil {
+                if currentNode.key >= num {
+                    previousNode = currentNode
+                    currentNode = currentNode.next!
+                } else {
+                    previousNode.next = currentNode.next!
+                    
+                    
+                    currentNode.next = partition
+                    partition = currentNode
+                    
+                    currentNode = previousNode.next!
+                }
+            }
+            
+            if currentNode.key < num {
+                previousNode.next = nil
+                currentNode.next = partition
+                partition = currentNode
+            }
+            
+            head = partition
+        }
     }
-
 }
 
+let list = LinkedList<Int>()
 
+for _ in 0...10 {
+    list.append(element: Int(arc4random_uniform(10)) + 1)
+}
 
+list.printAllKeys()
+list.partition(5)
+list.printAllKeys()
 
 //: [Next](@next)

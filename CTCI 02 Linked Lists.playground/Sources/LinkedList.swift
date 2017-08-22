@@ -4,6 +4,9 @@ public class LinkedList<T: Equatable> {
   public var head  = Node<T>()
     
     public init() {}
+    public init(head: Node<T>) {
+        self.head = head
+    }
     
     public func printAllKeys() {
         var currentNode = head
