@@ -1,9 +1,10 @@
 import Foundation
 
-public class LinkedList<T: Equatable> {
+open class LinkedList<T: Equatable> {
   public var head  = Node<T>()
     
     public init() {}
+    
     public init(head: Node<T>) {
         self.head = head
     }
@@ -113,5 +114,22 @@ public class LinkedList<T: Equatable> {
             currentNode = temp
         }
         self.head = previousNode!
+    }
+}
+
+extension LinkedList: Equatable {
+    public static func ==(lhs: LinkedList<T>, rhs: LinkedList<T>) -> Bool {
+        var currentNodeLeft = lhs.head
+        var currentNodeRight = rhs.head
+        while currentNodeLeft.next != nil && currentNodeRight.next != nil {
+            guard currentNodeLeft.key == currentNodeRight.key else { return false }
+            currentNodeLeft = currentNodeLeft.next!
+            currentNodeRight = currentNodeRight.next!
+        }
+
+        guard currentNodeLeft.key == currentNodeRight.key else { return false }
+        guard currentNodeLeft.next == nil && currentNodeRight.next == nil else { return false }
+
+        return true
     }
 }
